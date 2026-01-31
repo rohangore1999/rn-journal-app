@@ -5,12 +5,6 @@ import { SymbolViewProps, SymbolWeight } from "expo-symbols";
 import { ComponentProps } from "react";
 import { OpaqueColorValue, type StyleProp, type TextStyle } from "react-native";
 
-type IconMapping = Record<
-  SymbolViewProps["name"],
-  ComponentProps<typeof MaterialIcons>["name"]
->;
-type IconSymbolName = keyof typeof MAPPING;
-
 /**
  * Add your SF Symbols(Apple's icon system (iOS/macOS)) to Material [filter: MaterialIcons] (Google's icon system (Android/web)) Icons mappings here.
  * - see Material Icons in the [Icons Directory](https://icons.expo.fyi).
@@ -29,7 +23,10 @@ const MAPPING = {
   "book.fill": "menu-book", // 📖 Book icon
   "heart.fill": "favorite", // ❤️ Heart icon
   "person.fill": "person", // 👤 Person icon
-} as IconMapping;
+  refresh: "refresh", // 🔄 Refresh icon
+} as const satisfies Record<string, ComponentProps<typeof MaterialIcons>["name"]>;
+
+type IconSymbolName = keyof typeof MAPPING;
 
 /**
  * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.

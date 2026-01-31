@@ -15,6 +15,10 @@ const _layout = () => {
       {/* If authorized, show the tabs */}
       <Stack.Protected guard={isSignedIn}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
+        <Stack.Screen name="new-entry" options={{ headerShown: false }} />
+        <Stack.Screen name="edit-entry/[id]" options={{ headerShown: false }} />
+        <Stack.Screen name="entry/[id]" options={{ headerShown: false }} />
       </Stack.Protected>
 
       {/* If not authorized, show the sign-in and sign-up pages */}

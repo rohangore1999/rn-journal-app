@@ -85,8 +85,8 @@ export default function DailyPromptCards() {
         <Pressable onPress={loadPrompts}>
           <IconSymbol
             size={20}
-            name="arrow.clockwise"
-            color={AppColors.gray500}
+            name="refresh"
+            color={AppColors.white}
           />
         </Pressable>
       </XStack>
